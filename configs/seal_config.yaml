@@ -1,0 +1,19 @@
+# SEAL Configuration
+hidden_dim: 64
+num_layers: 3
+num_hops: 2
+dropout: 0.5
+pool: 'mean'  # 'mean', 'max', 'sum'
+
+# Training
+lr: 0.01
+weight_decay: 0.0005
+num_epochs: 50
+patience: 10
+batch_size: 32
+
+# Data
+train_ratio: 0.7
+val_ratio: 0.15
+neg_ratio: 1.0
+
