@@ -1,0 +1,115 @@
+================================================================================
+FRIEND RECOMMENDATION GNN PROJECT - QUICK START COMMANDS
+================================================================================
+
+Copy and paste these commands in Command Prompt (cmd.exe) one by one:
+
+================================================================================
+STEP 1: Navigate to Project Directory
+================================================================================
+
+cd C:\Users\navne\Desktop\Major-Project
+
+
+================================================================================
+STEP 2: Install Dependencies
+================================================================================
+
+pip install -r requirements.txt
+
+
+================================================================================
+STEP 3: Create Synthetic Dataset
+================================================================================
+
+python scripts/download_and_prepare.py --dataset synthetic --preprocess
+
+
+================================================================================
+STEP 4: Train GraphSAGE Model
+================================================================================
+
+python scripts/train.py --model graphsage --dataset synthetic --config configs/graphsage_config.yaml
+
+
+================================================================================
+STEP 5: Evaluate Model
+================================================================================
+
+python scripts/evaluate.py --model graphsage --checkpoint data/checkpoints/graphsage/best_model.pt --dataset synthetic --config configs/graphsage_config.yaml
+
+
+================================================================================
+STEP 6: Run Demo App
+================================================================================
+
+python -m streamlit run demo/streamlit_app.py
+
+
+================================================================================
+ALTERNATIVE: Run Everything at Once (Batch Script)
+================================================================================
+
+Just double-click: RUN_PROJECT.bat
+
+Or run:
+RUN_PROJECT.bat
+
+
+================================================================================
+OPTIONAL: Train GAT Model
+================================================================================
+
+python scripts/train.py --model gat --dataset synthetic --config configs/gat_config.yaml
+
+
+================================================================================
+OPTIONAL: Use Facebook Dataset (Larger, Better Results)
+================================================================================
+
+REM Download Facebook dataset
+python scripts/download_and_prepare.py --dataset facebook --download --preprocess
+
+REM Train on Facebook
+python scripts/train.py --model graphsage --dataset facebook --config configs/graphsage_config.yaml
+
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+If "python" is not recognized:
+  Use: python.exe or py
+
+If "pip" is not recognized:
+  Use: python -m pip install -r requirements.txt
+
+If Streamlit doesn't work:
+  Use: python -m streamlit run demo/streamlit_app.py
+
+If you get import errors:
+  pip install <missing_module_name>
+
+
+================================================================================
+EXPECTED TIME
+================================================================================
+
+- Dataset creation: ~30 seconds
+- Training: ~1-2 minutes (CPU)
+- Evaluation: ~10 seconds
+- Total: ~5-10 minutes
+
+
+================================================================================
+FILES CREATED
+================================================================================
+
+After running, you'll have:
+- data/processed/synthetic.pt
+- data/processed/synthetic_link_data.pt
+- data/checkpoints/graphsage/best_model.pt
+
+
+================================================================================
+
