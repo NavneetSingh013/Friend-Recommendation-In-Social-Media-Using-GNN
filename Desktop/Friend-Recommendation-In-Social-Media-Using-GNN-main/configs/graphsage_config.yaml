@@ -1,0 +1,19 @@
+# GraphSAGE Configuration
+hidden_dim: 64
+embedding_dim: 64
+num_layers: 2
+dropout: 0.5
+aggregator: 'mean'  # 'mean', 'max', 'lstm'
+predictor_method: 'mlp'  # 'dot', 'cosine', 'mlp'
+
+# Training
+lr: 0.01
+weight_decay: 0.0005
+num_epochs: 100
+patience: 10
+
+# Data
+train_ratio: 0.7
+val_ratio: 0.15
+neg_ratio: 1.0
+
